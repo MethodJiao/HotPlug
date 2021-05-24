@@ -1,0 +1,11 @@
+﻿################################################################################
+# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
+################################################################################
+
+/.vs
+/HotPlug/.vs/HotPlug/v16
+/HotPlug/HotPlugCenter/x64/Debug
+/HotPlug/PlugIn/x64/Debug
+/HotPlug/PlugInSec/x64/Debug
+/HotPlug/x64/Debug
+/HotPlug/HotPlugBoot/x64/Debug
