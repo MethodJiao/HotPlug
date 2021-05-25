@@ -47,10 +47,17 @@ HOTPLUG_EXPORT bool P3D::BPHotPlugEventListener::notifyListeners(BPHotPlugEvent:
 	return status;
 }
 
-HOTPLUG_EXPORT void P3D::BPHotPlugEventListener::addListener(std::wstring moduleName, BPHotPlugEvent* handler)
+HOTPLUG_EXPORT void P3D::BPHotPlugEventListener::addListener(HINSTANCE moduleInstance, BPHotPlugEvent* handler)
 {
 	if (handler == nullptr)
 		return;
+
+	TCHAR szDLLFolder[MAX_PATH + 1];
+	GetModuleFileName(moduleInstance, szDLLFolder, MAX_PATH);
+	wstring dllFolder = szDLLFolder;
+	size_t pos = dllFolder.rfind(L"\\")+1;
+	wstring moduleName = dllFolder.substr(pos);
+
 	m_eventPool.insert(make_pair(moduleName, handler));
 }
 

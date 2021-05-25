@@ -94,6 +94,6 @@ PlugInEvent::~PlugInEvent()
 BOOL CPlugInApp::InitInstance()
 {
 	CWinApp::InitInstance();
-	P3D::BPHotPlugEventListener::Get().addListener(L"PlugIn.dll", new PlugInEvent());
+	P3D::BPHotPlugEventListener::Get().addListener(AfxGetApp()->m_hInstance, new PlugInEvent());
 	return TRUE;
 }

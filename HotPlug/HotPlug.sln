@@ -11,10 +11,16 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HotPlugBoot", "HotPlugBoot\
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PlugIn", "PlugIn\PlugIn.vcxproj", "{B772372E-887C-4ACD-951D-E11131137BED}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B8541E7F-468E-40F3-9D11-5D8EDF9AB5BE} = {B8541E7F-468E-40F3-9D11-5D8EDF9AB5BE}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HotPlugCenter", "HotPlugCenter\HotPlugCenter.vcxproj", "{B8541E7F-468E-40F3-9D11-5D8EDF9AB5BE}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PlugInSec", "PlugInSec\PlugInSec.vcxproj", "{C190372C-6135-44BB-BAA3-E2B0B3E00193}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B8541E7F-468E-40F3-9D11-5D8EDF9AB5BE} = {B8541E7F-468E-40F3-9D11-5D8EDF9AB5BE}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "两个插件demo", "两个插件demo", "{E08E9F42-4F77-4204-9F06-2C2407CCD5D1}"
 EndProject

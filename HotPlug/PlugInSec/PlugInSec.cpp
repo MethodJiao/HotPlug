@@ -92,6 +92,6 @@ PlugInSecEvent::~PlugInSecEvent()
 BOOL CPlugInSecApp::InitInstance()
 {
 	CWinApp::InitInstance();
-	P3D::BPHotPlugEventListener::Get().addListener(L"PlugInSec.dll", new PlugInSecEvent());
+	P3D::BPHotPlugEventListener::Get().addListener(AfxGetApp()->m_hInstance, new PlugInSecEvent());
 	return TRUE;
 }

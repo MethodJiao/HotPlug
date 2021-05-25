@@ -13,7 +13,7 @@ namespace P3D
 
 	public:
 		HOTPLUG_EXPORT bool notifyListeners(BPHotPlugEvent::BPHotPlugEventType type, std::wstring moduleName);
-		HOTPLUG_EXPORT void addListener(std::wstring moduleName,BPHotPlugEvent* handler);
+		HOTPLUG_EXPORT void addListener(HINSTANCE moduleInstance,BPHotPlugEvent* handler);
 		HOTPLUG_EXPORT void dropListener(std::wstring moduleName);
 
 	private:
