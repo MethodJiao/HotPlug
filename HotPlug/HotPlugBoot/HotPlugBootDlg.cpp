@@ -223,6 +223,6 @@ void CHotPlugBootDlg::OnBnClickedButton3()
 	if (lpPlugInFunc == nullptr)
 		return;
 
-	(*lpPlugInFunc)();
+	lpPlugInFunc();
 }
 
