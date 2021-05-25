@@ -55,7 +55,7 @@ HOTPLUG_EXPORT void P3D::BPHotPlugEventListener::addListener(HINSTANCE moduleIns
 	TCHAR szDLLFolder[MAX_PATH + 1];
 	GetModuleFileName(moduleInstance, szDLLFolder, MAX_PATH);
 	wstring dllFolder = szDLLFolder;
-	size_t pos = dllFolder.rfind(L"\\")+1;
+	size_t pos = dllFolder.rfind(L"\\") + 1;
 	wstring moduleName = dllFolder.substr(pos);
 
 	m_eventPool.insert(make_pair(moduleName, handler));
