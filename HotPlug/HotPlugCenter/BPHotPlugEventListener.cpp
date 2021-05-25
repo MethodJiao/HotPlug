@@ -3,9 +3,9 @@
 #include <utility>
 using namespace P3D;
 using namespace std;
+
 BPHotPlugEventListener::BPHotPlugEventListener()
 {
-
 }
 
 BPHotPlugEventListener::~BPHotPlugEventListener()
@@ -29,12 +29,12 @@ HOTPLUG_EXPORT bool P3D::BPHotPlugEventListener::notifyListeners(BPHotPlugEvent:
 
 	switch (type)
 	{
-	case P3D::BPHotPlugEvent::Load:
+	case P3D::BPHotPlugEvent::BPHotPlugEventType::Load:
 	{
 		it->second->onLoadModule();
 		break;
 	}
-	case P3D::BPHotPlugEvent::Unload:
+	case P3D::BPHotPlugEvent::BPHotPlugEventType::Unload:
 	{
 		it->second->onUnLoadModule();
 		delete it->second;

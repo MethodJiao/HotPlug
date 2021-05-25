@@ -4,7 +4,7 @@ namespace P3D
 	class BPHotPlugEvent
 	{
 	public:
-		enum BPHotPlugEventType
+		enum class BPHotPlugEventType
 		{
 			Load,
 			Unload
