@@ -37,8 +37,7 @@ HOTPLUG_EXPORT bool P3D::BPHotPlugEventListener::notifyListeners(BPHotPlugEvent:
 	case P3D::BPHotPlugEvent::BPHotPlugEventType::Unload:
 	{
 		status = it->second->onUnLoadModule();
-		delete it->second;
-		m_eventPool.erase(moduleName);
+		dropListener(moduleName);
 		break;
 	}
 	default:
@@ -57,5 +56,9 @@ HOTPLUG_EXPORT void P3D::BPHotPlugEventListener::addListener(std::wstring module
 
 HOTPLUG_EXPORT void P3D::BPHotPlugEventListener::dropListener(std::wstring moduleName)
 {
+	std::map<std::wstring, BPHotPlugEvent*>::iterator it = m_eventPool.find(moduleName);
+	if (it == m_eventPool.end())
+		return;
+	delete it->second;
 	m_eventPool.erase(moduleName);
 }
