@@ -67,17 +67,17 @@ public:
 private:
 
 protected:
-	virtual void _onLoadModule() override
+	virtual bool _onLoadModule() override
 	{
-		AfxMessageBox(L"PlugInSecEvent 加载");
-		//throw std::logic_error("The method or operation is not implemented.");
+		AfxMessageBox(L"PlugInSec 加载成功");
+		return true;
 	}
 
 
-	virtual void _onUnLoadModule() override
+	virtual bool _onUnLoadModule() override
 	{
-		AfxMessageBox(L"PlugInSecEvent 卸载");
-		//throw std::logic_error("The method or operation is not implemented.");
+		AfxMessageBox(L"PlugInSec 卸载成功");
+		return true;
 	}
 
 };

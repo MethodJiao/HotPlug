@@ -21,22 +21,22 @@ BPHotPlugEventListener& P3D::BPHotPlugEventListener::Get()
 
 HOTPLUG_EXPORT bool P3D::BPHotPlugEventListener::notifyListeners(BPHotPlugEvent::BPHotPlugEventType type, std::wstring moduleName)
 {
-	std::map<std::wstring, BPHotPlugEvent*>::iterator it =  m_eventPool.find(moduleName);
+	std::map<std::wstring, BPHotPlugEvent*>::iterator it = m_eventPool.find(moduleName);
 	if (it == m_eventPool.end())
 		return false;
 	if (it->second == nullptr)
 		return false;
-
+	bool status = false;
 	switch (type)
 	{
 	case P3D::BPHotPlugEvent::BPHotPlugEventType::Load:
 	{
-		it->second->onLoadModule();
+		status = it->second->onLoadModule();
 		break;
 	}
 	case P3D::BPHotPlugEvent::BPHotPlugEventType::Unload:
 	{
-		it->second->onUnLoadModule();
+		status = it->second->onUnLoadModule();
 		delete it->second;
 		m_eventPool.erase(moduleName);
 		break;
@@ -45,10 +45,10 @@ HOTPLUG_EXPORT bool P3D::BPHotPlugEventListener::notifyListeners(BPHotPlugEvent:
 		break;
 	}
 
-	return true;
+	return status;
 }
 
-HOTPLUG_EXPORT void P3D::BPHotPlugEventListener::addListener(std::wstring moduleName,BPHotPlugEvent* handler)
+HOTPLUG_EXPORT void P3D::BPHotPlugEventListener::addListener(std::wstring moduleName, BPHotPlugEvent* handler)
 {
 	if (handler == nullptr)
 		return;

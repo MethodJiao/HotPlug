@@ -12,12 +12,12 @@ P3D::BPHotPlugEvent::~BPHotPlugEvent()
 
 }
 
-void P3D::BPHotPlugEvent::onLoadModule()
+bool P3D::BPHotPlugEvent::onLoadModule()
 {
-	_onLoadModule();
+	return _onLoadModule();
 }
 
-void P3D::BPHotPlugEvent::onUnLoadModule()
+bool P3D::BPHotPlugEvent::onUnLoadModule()
 {
-	_onUnLoadModule();
+	return _onUnLoadModule();
 }

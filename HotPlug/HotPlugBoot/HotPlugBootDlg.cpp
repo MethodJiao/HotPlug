@@ -199,7 +199,7 @@ void CHotPlugBootDlg::OnBnClickedButton2()
 	if (errorCode != 0)
 		return;
 
-	m_listCtrl.SetItemText(nIdx, 1, _T("已卸载"));
+	m_listCtrl.SetItemText(nIdx, 1, _T("已被 卸载"));
 }
 typedef void (*PlugInFunc)();
 //执行

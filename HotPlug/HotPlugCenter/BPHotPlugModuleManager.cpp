@@ -34,6 +34,7 @@ DWORD P3D::BPHotPlugModuleManager::loadModuleForManager(std::wstring dllName)
 	DWORD errorCode = GetLastError();
 	if (errorCode != 0)
 		return errorCode;
+
 	m_moduleMap.insert(make_pair(dllName, hmod));
 	BPHotPlugEventListener::Get().notifyListeners(BPHotPlugEvent::BPHotPlugEventType::Load, dllName);
 	return 0;
@@ -45,10 +46,12 @@ DWORD P3D::BPHotPlugModuleManager::unLoadModuleForManager(std::wstring dllName)
 	if (it == m_moduleMap.end())
 		return NULL;
 	BPHotPlugEventListener::Get().notifyListeners(BPHotPlugEvent::BPHotPlugEventType::Unload, dllName);
+
 	FreeLibrary(it->second);
 	DWORD errorCode = GetLastError();
 	if (errorCode != 0)
 		return errorCode;
+
 	m_moduleMap.erase(dllName);
 	return 0;
 }
